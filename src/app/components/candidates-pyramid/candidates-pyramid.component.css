@@ -1,0 +1,126 @@
+.pyramid-container {
+    padding: 10px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.pyramid-title {
+    font-size: 1.3rem;
+    color: #00d4ff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.pyramid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.pyramid-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position: relative;
+    animation: slideIn 0.6s ease;
+    flex: 1;
+    min-width: 280px;
+}
+
+.pyramid-row.first-place {
+    animation-delay: 0.1s;
+}
+
+.pyramid-row.second-place {
+    animation-delay: 0.3s;
+}
+
+.pyramid-row.third-place {
+    animation-delay: 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pyramid-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 2px solid #0f3460;
+}
+
+.legend-item {
+    background: rgba(15, 52, 96, 0.3);
+    border: 1px solid #0f3460;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.legend-value {
+    display: block;
+    color: #00d4ff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.legend-label {
+    display: block;
+    color: #b0b0b0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .pyramid-container {
+        padding: 10px 5px;
+    }
+
+    .pyramid-title {
+        font-size: 1.1rem;
+    }
+
+    .pyramid {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pyramid-row {
+        flex: none;
+    }
+
+    .pyramid-legend {
+        gap: 8px;
+        grid-template-columns: 1fr;
+    }
+}

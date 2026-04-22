@@ -1,0 +1,39 @@
+<div class="elections-page">
+    <!-- Header -->
+    <header class="page-header">
+        <h1 class="page-title">Elecciones 2026</h1>
+    </header>
+
+    <!-- Loading State -->
+    @if (electionService.isLoading()) {
+    <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Cargando datos electorales...</p>
+    </div>
+    }
+
+    <!-- Error State -->
+    @if (electionService.error()) {
+    <div class="error-container">
+        <div class="error-icon">⚠</div>
+        <h2>Error al cargar los datos</h2>
+        <p>{{ electionService.error() }}</p>
+        <button (click)="retry()" class="retry-button">Reintentar</button>
+    </div>
+    }
+
+    <!-- Main Content -->
+    @if (!electionService.isLoading() && !electionService.error()) {
+    <main class="main-content">
+        <app-actas-display [actas]="electionService.actas()"
+            [snapshotTime]="electionService.electionResult()?.snapshot_time || ''">
+        </app-actas-display>
+        <app-candidates-pyramid [candidates]="getTopThreeCandidates()"></app-candidates-pyramid>
+    </main>
+    }
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>{{ formatDate(electionService.electionResult()?.snapshot_time || '') }}</p>
+    </footer>
+</div>

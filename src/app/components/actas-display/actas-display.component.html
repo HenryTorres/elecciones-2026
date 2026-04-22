@@ -1,0 +1,41 @@
+@if (actas) {
+<div class="actas-container">
+    <div class="actas-content">
+        <!-- Información principal en horizontal -->
+        <div class="actas-main-info">
+            <div class="actas-number-section">
+                <div class="actas-number">{{ actas.actas_contabilizadas | number }}</div>
+                <div class="actas-label">Actas Contabilizadas</div>
+                <div class="actas-total">de {{ actas.actas_total | number }} totales</div>
+            </div>
+
+            <div class="actas-progress-section">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" [style.width.%]="actas.actas_contabilizadas_pct"></div>
+                </div>
+                <span class="progress-text">{{ actas.actas_contabilizadas_pct | number: '1.2-2' }}%</span>
+            </div>
+        </div>
+
+        <!-- Estadísticas en horizontal -->
+        <div class="actas-stats">
+            <div class="stat-box">
+                <span class="stat-value">{{ actas.total_valid_votes | number }}</span>
+                <span class="stat-label">Votos Válidos</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">{{ actas.citizen_participation_pct | number: '1.2-2' }}%</span>
+                <span class="stat-label">Participación</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">{{ actas.actas_pendientes | number }}</span>
+                <span class="stat-label">Actas Pendientes</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="actas-timestamp">
+        Actualizado: {{ formatDate(snapshotTime) }}
+    </div>
+</div>
+}
