@@ -4,8 +4,8 @@
     <div class="pyramid">
         <div class="pyramid-row first-place">
             @if (candidates[0]) {
-            <app-candidate-card [candidate]="candidates[0]" [rank]="1" [voteDifference]="null"
-                [percentageDifference]="null"></app-candidate-card>
+            <app-candidate-card [candidate]="candidates[0]" [rank]="1" [voteDifference]=0
+                [percentageDifference]=0></app-candidate-card>
             }
         </div>
 
@@ -21,17 +21,6 @@
             <app-candidate-card [candidate]="candidates[2]" [rank]="3" [voteDifference]="voteDifference2to3()"
                 [percentageDifference]="percentageDifference2to3()"></app-candidate-card>
             }
-        </div>
-    </div>
-
-    <div class="pyramid-legend">
-        <div class="legend-item">
-            <span class="legend-value">{{ getTotalVotes() | number }}</span>
-            <span class="legend-label">Votos emitidos en Top 3</span>
-        </div>
-        <div class="legend-item">
-            <span class="legend-value">{{ getTotalPercentage() | number: '1.2-2' }}%</span>
-            <span class="legend-label">Del total de votos válidos</span>
         </div>
     </div>
 </div>

@@ -1,8 +1,7 @@
 <div class="candidate-card" [class.second]="rank === 2" [class.third]="rank === 3">
     <div class="rank-badge">{{ rank }}</div>
 
-    <div class="party-icon">
-        {{ getPartyInitials(candidate.party) }}
+    <div class="party-icon" [style.backgroundImage]="'url(' + './images/' + candidate.candidate_id + '.jpg' + ')'">
     </div>
 
     <div class="candidate-info">
@@ -20,22 +19,22 @@
             <span class="percentage-value">{{ candidate.percentage | number: '1.2-2' }}%</span>
         </div>
     </div>
-
-    @if (voteDifference !== null && percentageDifference !== null) {
+    <!-- 
+    @if (voteDifference !== null && percentageDifference !== null) { -->
     <div class="difference-section">
         <div class="difference-badge">vs candidato anterior</div>
         <div class="difference-row">
             <span class="diff-label">Diferencia de votos:</span>
-            <span class="diff-value" [class.positive]="voteDifference >= 0">
-                {{ voteDifference > 0 ? '+' : '' }}{{ voteDifference | number }}
+            <span class="diff-value">
+                {{ voteDifference | number }}
             </span>
         </div>
         <div class="difference-row">
             <span class="diff-label">Diferencia %:</span>
-            <span class="diff-value" [class.positive]="percentageDifference >= 0">
-                {{ percentageDifference > 0 ? '+' : '' }}{{ percentageDifference | number: '1.2-2' }}%
+            <span class="diff-value">
+                {{ percentageDifference | number: '1.2-2' }}%
             </span>
         </div>
     </div>
-    }
+    <!-- } -->
 </div>

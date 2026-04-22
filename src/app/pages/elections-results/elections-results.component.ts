@@ -1,13 +1,12 @@
 import { Component, OnInit, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ElectionService } from '../../services/election.service';
-import { ActasDisplayComponent } from '../../components/actas-display/actas-display.component';
 import { CandidatesPyramidComponent } from '../../components/candidates-pyramid/candidates-pyramid.component';
 
 @Component({
     selector: 'app-elections-results',
     standalone: true,
-    imports: [CommonModule, ActasDisplayComponent, CandidatesPyramidComponent],
+    imports: [CommonModule, CandidatesPyramidComponent],
     templateUrl: './elections-results.component.html',
     styleUrl: './elections-results.component.css'
 })

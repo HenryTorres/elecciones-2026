@@ -12,8 +12,14 @@ import { Candidate } from '../../models/election.model';
 export class CandidateCardComponent {
     @Input() candidate!: Candidate;
     @Input() rank!: number;
-    @Input() voteDifference: number | null = null;
-    @Input() percentageDifference: number | null = null;
+    @Input() voteDifference: number = 0;
+    @Input() percentageDifference: number = 0;
+
+    // id: string = '';
+
+    ngOnInit() {
+        // this.id = this.getPartyInitials(this.candidate.party);
+    }
 
     getPartyInitials(party: string): string {
         return party

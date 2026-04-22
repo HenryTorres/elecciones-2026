@@ -1,7 +1,41 @@
 <div class="elections-page">
     <!-- Header -->
     <header class="page-header">
-        <h1 class="page-title">Elecciones 2026</h1>
+
+        @if (!electionService.isLoading() && !electionService.error() && electionService.actas(); as actas) {
+        <div class="header-stats">
+            <div class="header-top">
+                <h1 class="page-title">Elecciones 2026</h1>
+            </div>
+            <div class="header-stat-container">
+                <div class="header-stat">
+                    <span class="stat-number">{{ actas.actas_contabilizadas | number }}</span>
+                    <span class="stat-text">Actas</span>
+                </div>
+                <div class="header-progress">
+                    <div class="progress-bar-mini">
+                        <div class="progress-fill" [style.width.%]="actas.actas_contabilizadas_pct"></div>
+                    </div>
+                    <span class="progress-pct">{{ actas.actas_contabilizadas_pct | number: '1.1-1'
+                        }}%</span>
+                </div>
+                <div class="header-stat">
+                    <span class="stat-number">{{ actas.total_valid_votes | number }}</span>
+                    <span class="stat-text">Votos</span>
+                </div>
+                <div class="header-stat">
+                    <span class="stat-number">{{ actas.citizen_participation_pct | number: '1.1-1'
+                        }}%</span>
+                    <span class="stat-text">Participación</span>
+                </div>
+                <div class="header-stat">
+                    <span class="stat-number">{{ actas.actas_pendientes | number }}</span>
+                    <span class="stat-text">Pendientes</span>
+                </div>
+            </div>
+
+        </div>
+        }
     </header>
 
     <!-- Loading State -->
@@ -25,9 +59,6 @@
     <!-- Main Content -->
     @if (!electionService.isLoading() && !electionService.error()) {
     <main class="main-content">
-        <app-actas-display [actas]="electionService.actas()"
-            [snapshotTime]="electionService.electionResult()?.snapshot_time || ''">
-        </app-actas-display>
         <app-candidates-pyramid [candidates]="getTopThreeCandidates()"></app-candidates-pyramid>
     </main>
     }

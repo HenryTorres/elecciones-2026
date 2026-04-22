@@ -18,6 +18,7 @@ export interface Candidate {
     party_id: null | string;
     votes: number;
     percentage: number;
+    image?: string;
 }
 
 export interface ElectionResult {
