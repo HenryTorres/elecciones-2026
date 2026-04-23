@@ -1,10 +1,12 @@
 .elections-page {
     display: flex;
     flex-direction: column;
-    min-height: 100dvh;
+    height: 100dvh;
     background: linear-gradient(180deg, #0a0e27 0%, #1a1a2e 50%, #0a0e27 100%);
     color: #e0e0e0;
     font-family: 'Arial', sans-serif;
+    overflow: hidden;
+
 }
 
 .page-header {
@@ -19,96 +21,6 @@
     gap: 8px;
 }
 
-.header-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.page-title {
-    font-size: 1.8rem;
-    margin: 0;
-    color: #00d4ff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-}
-
-.header-stats {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 10px;
-}
-
-.header-stat-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2px;
-}
-
-.header-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    background: rgba(15, 52, 96, 0.4);
-    padding: 6px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(15, 52, 96, 0.6);
-}
-
-.stat-number {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #00d4ff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-    line-height: 1;
-}
-
-.stat-text {
-    font-size: 0.65rem;
-    color: #b0b0b0;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-}
-
-.header-progress {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(15, 52, 96, 0.4);
-    padding: 6px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(15, 52, 96, 0.6);
-}
-
-.progress-bar-mini {
-    width: 80px;
-    height: 6px;
-    background: #0a0e27;
-    border-radius: 3px;
-    overflow: hidden;
-    border: 1px solid #0f3460;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #00d4ff 0%, #ff006e 100%);
-    transition: width 0.5s ease;
-    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
-}
-
-.progress-pct {
-    font-size: 0.75rem;
-    color: #00d4ff;
-    font-weight: bold;
-    min-width: 35px;
-}
-
 .page-subtitle {
     font-size: 1.2rem;
     margin: 0;
@@ -120,12 +32,55 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    max-width: 1200px;
+    gap: 16px;
     width: 100%;
+    padding: 20px;
     margin: 0 auto;
-    padding: 12px 20px;
     overflow-y: auto;
+    /* background: rgba(10, 14, 39, 0.75); */
+    min-height: 0;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.18);
+    border-radius: 999px;
+}
+
+.info-actas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    .actas-title {
+        font-size: 0.75rem;
+        color: #9090a0;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin: 0;
+    }
+
+    .actas-computed {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #00d4ff;
+        text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        margin: 0;
+    }
+
+    .last-updated {
+        font-size: 0.7rem;
+        color: #b0b0b0;
+        margin: 0;
+    }
 }
 
 .loading-container,
@@ -135,11 +90,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
     text-align: center;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border: 2px solid #0f3460;
-    border-radius: 20px;
     margin: auto;
 }
 
@@ -216,67 +167,8 @@
     margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-    .page-header {
-        padding: 8px 10px;
-        gap: 6px;
-    }
-
-    .page-title {
-        font-size: 1.3rem;
-        letter-spacing: 1px;
-    }
-
-    .header-stats {
-        gap: 8px;
-        padding: 0 5px;
-    }
-
-    .header-stat {
-        padding: 5px 8px;
-        font-size: 0.9rem;
-    }
-
-    .stat-number {
-        font-size: 0.9rem;
-    }
-
-    .stat-text {
-        font-size: 0.6rem;
-    }
-
-    .progress-bar-mini {
-        width: 60px;
-        height: 5px;
-    }
-
-    .progress-pct {
-        font-size: 0.7rem;
-        min-width: 30px;
-    }
-
-    .page-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .main-content {
-        padding: 10px 10px;
-        gap: 10px;
-    }
-
-    .loading-container,
-    .error-container {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-title {
-        font-size: 1.5rem;
-        letter-spacing: 1px;
-    }
-
-    .page-subtitle {
-        font-size: 0.9rem;
+@media (max-width: 800px) {
+    .actas-computed {
+        font-size: 2rem;
     }
 }

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.header-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-title {
+    font-family: "Righteous", sans-serif;
+    font-size: 1.8rem;
+    margin: 0;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.header-stat-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.header-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: rgba(6, 23, 43, 0.4);
+    padding: 10px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 52, 96, 0.6);
+}
+
+.header-stat:hover {
+    background: #b60d3286;
+    border-color: rgba(15, 52, 96, 0.8);
+    /* text-shadow: 0 0 10px rgba(0, 212, 255, 0.4); */
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.stat-number {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+    line-height: 1;
+}
+
+.stat-text {
+    font-size: 0.65rem;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 780px) {
+    .header-stat-container {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

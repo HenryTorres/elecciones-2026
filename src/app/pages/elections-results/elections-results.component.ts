@@ -1,17 +1,22 @@
-import { Component, OnInit, effect } from '@angular/core';
+import { Component, Inject, OnInit, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ElectionService } from '../../services/election.service';
 import { CandidatesPyramidComponent } from '../../components/candidates-pyramid/candidates-pyramid.component';
+import { ActasDisplay } from '../../components/actas-display/actas-display';
 
 @Component({
     selector: 'app-elections-results',
     standalone: true,
-    imports: [CommonModule, CandidatesPyramidComponent],
+    imports: [CommonModule, CandidatesPyramidComponent, ActasDisplay],
     templateUrl: './elections-results.component.html',
     styleUrl: './elections-results.component.css'
 })
 export class ElectionsResultsComponent implements OnInit {
-    constructor(public electionService: ElectionService) {
+
+
+    public electionService = inject(ElectionService);
+
+    constructor() {
         effect(() => {
             if (!this.electionService.electionResult()) {
                 this.electionService.fetchElectionResults();
@@ -22,6 +27,7 @@ export class ElectionsResultsComponent implements OnInit {
     ngOnInit(): void {
         if (!this.electionService.electionResult()) {
             this.electionService.fetchElectionResults();
+            console.log({ 'time': this.electionService.time_snapshot() })
         }
     }
 

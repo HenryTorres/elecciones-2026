@@ -4,28 +4,33 @@
     </div>
     <div class="header-stat-container">
         <div class="header-stat">
-            <span class="stat-number">{{ actas.actas_contabilizadas | number }}</span>
-            <span class="stat-text">Actas</span>
-        </div>
-        <div class="header-progress">
-            <div class="progress-bar-mini">
-                <div class="progress-fill" [style.width.%]="actas.actas_contabilizadas_pct"></div>
-            </div>
-            <span class="progress-pct">{{ actas.actas_contabilizadas_pct | number: '1.1-1'
-                }}%</span>
+            <span class="stat-number">{{ actas?.actas_contabilizadas | number }}</span>
+            <span class="stat-text">Actas Cont.</span>
         </div>
         <div class="header-stat">
-            <span class="stat-number">{{ actas.total_valid_votes | number }}</span>
-            <span class="stat-text">Votos</span>
+            <span class="stat-number">{{ actas?.actas_total | number }}</span>
+            <span class="stat-text">Actas Total</span>
         </div>
         <div class="header-stat">
-            <span class="stat-number">{{ actas.citizen_participation_pct | number: '1.1-1'
+            <span class="stat-number">{{ actas?.total_valid_votes | number }}</span>
+            <span class="stat-text">Votos validos</span>
+        </div>
+        <!-- <div class="header-stat">
+            <span class="stat-number">{{ actas?.citizen_participation_pct | number: '1.1-1'
                 }}%</span>
             <span class="stat-text">Participación</span>
+        </div> -->
+        <div class="header-stat">
+            <span class="stat-number">{{ actas?.actas_enviadas_jee | number }}</span>
+            <span class="stat-text">Actas Env. a JEE</span>
         </div>
         <div class="header-stat">
-            <span class="stat-number">{{ actas.actas_pendientes | number }}</span>
-            <span class="stat-text">Pendientes</span>
+            <span class="stat-number">{{ actas?.actas_pendientes | number }}</span>
+            <span class="stat-text">Actas Pend.</span>
+        </div>
+        <div class="header-stat">
+            <span class="stat-number">{{ actas?.actas_pendientes_jee | number }}</span>
+            <span class="stat-text">Actas Pend. JEE</span>
         </div>
     </div>
 

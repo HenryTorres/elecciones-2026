@@ -1,41 +1,44 @@
 .candidate-card {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     border: 2px solid #0f3460;
-    border-radius: 16px;
-    padding: 14px;
-    margin: 6px auto;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     position: relative;
-    width: 320px;
-    /* height: 320px; */
+    width: 280px;
+    height: 335px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+    gap: 5px;
 }
 
 .candidate-card:hover {
     border-color: #00d4ff;
-    box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
-    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 212, 255, 0.3);
+    transform: translateY(-3px);
 }
 
 .rank-badge {
-    /* position: absolute; */
-    /* top: -12px; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
+    position: absolute;
+    top: 8px;
+    left: 8px;
     background: linear-gradient(135deg, #ff006e 0%, #ff4757 100%);
     color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    box-shadow: 0 0 15px rgba(255, 0, 110, 0.5);
-    border: 2px solid #0a0e27;
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10;
 }
 
 .candidate-card.second {
@@ -54,53 +57,57 @@
     color: #0a0e27;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin: 10px auto 10px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    margin: 12px auto 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     border: 2px solid #00d4ff;
     flex-shrink: 0;
 }
 
 .candidate-info {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     flex-grow: 0;
+    padding: 0 4px;
 }
 
 .candidate-name {
     color: #00d4ff;
-    font-size: 1.05rem;
-    margin: 0 0 5px 0;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    font-size: 0.95rem;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
     line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    word-break: break-word;
 }
 
 .party-name {
-    color: #b0b0b0;
-    font-size: 0.8rem;
+    color: #9090a0;
+    font-size: 0.9rem;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 }
 
 .votes-section {
-    background: rgba(15, 52, 96, 0.5);
-    border-radius: 12px;
-    padding: 10px;
-    margin-bottom: 12px;
+    background: rgba(15, 52, 96, 0.4);
+    height: 50px;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    flex-grow: 1;
+    gap: 8px;
+    /* flex-grow: 1; */
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .votes,
@@ -111,11 +118,12 @@
 .votes-label,
 .percentage-label {
     display: block;
-    color: #808080;
-    font-size: 0.7rem;
+    color: #7a8a9a;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
+    font-weight: 500;
 }
 
 .votes-value,
@@ -124,32 +132,32 @@
     color: #00ff88;
     font-size: 1.1rem;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
 }
 
 .difference-section {
-    background: rgba(255, 0, 110, 0.1);
-    border: 1px solid rgba(255, 0, 110, 0.3);
-    border-radius: 10px;
-    padding: 8px;
+    background: rgba(255, 0, 110, 0.08);
+    border: 1px solid rgba(255, 0, 110, 0.2);
+    border-radius: 6px;
+    padding: 6px;
     margin-top: auto;
     flex-shrink: 0;
 }
 
 .difference-badge {
-    font-size: 0.65rem;
-    color: #ff006e;
+    font-size: 0.6rem;
+    color: #ff6b7a;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-    margin-bottom: 4px;
-    font-weight: bold;
+    letter-spacing: 0.2px;
+    margin-bottom: 3px;
+    font-weight: 600;
 }
 
 .difference-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3px;
-    font-size: 0.75rem;
+    margin-bottom: 2px;
+    font-size: 0.7rem;
 }
 
 .diff-label {
@@ -159,36 +167,9 @@
 .diff-value {
     font-weight: bold;
     color: #ff006e;
+    font-size: .9rem;
 }
 
 .diff-value.positive {
     color: #ff4757;
-}
-
-@media (max-width: 600px) {
-    .candidate-card {
-        padding: 10px;
-        margin: 5px auto;
-        width: 280px;
-        height: 380px;
-    }
-
-    .candidate-name {
-        font-size: 0.95rem;
-    }
-
-    .party-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.2rem;
-    }
-
-    .votes-section {
-        padding: 8px;
-    }
-
-    .votes-value,
-    .percentage-value {
-        font-size: 0.95rem;
-    }
 }

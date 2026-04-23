@@ -3,38 +3,7 @@
     <header class="page-header">
 
         @if (!electionService.isLoading() && !electionService.error() && electionService.actas(); as actas) {
-        <div class="header-stats">
-            <div class="header-top">
-                <h1 class="page-title">Elecciones 2026</h1>
-            </div>
-            <div class="header-stat-container">
-                <div class="header-stat">
-                    <span class="stat-number">{{ actas.actas_contabilizadas | number }}</span>
-                    <span class="stat-text">Actas</span>
-                </div>
-                <div class="header-progress">
-                    <div class="progress-bar-mini">
-                        <div class="progress-fill" [style.width.%]="actas.actas_contabilizadas_pct"></div>
-                    </div>
-                    <span class="progress-pct">{{ actas.actas_contabilizadas_pct | number: '1.1-1'
-                        }}%</span>
-                </div>
-                <div class="header-stat">
-                    <span class="stat-number">{{ actas.total_valid_votes | number }}</span>
-                    <span class="stat-text">Votos</span>
-                </div>
-                <div class="header-stat">
-                    <span class="stat-number">{{ actas.citizen_participation_pct | number: '1.1-1'
-                        }}%</span>
-                    <span class="stat-text">Participación</span>
-                </div>
-                <div class="header-stat">
-                    <span class="stat-number">{{ actas.actas_pendientes | number }}</span>
-                    <span class="stat-text">Pendientes</span>
-                </div>
-            </div>
-
-        </div>
+        <actas-display [actas]="electionService.actas()" />
         }
     </header>
 
@@ -59,12 +28,17 @@
     <!-- Main Content -->
     @if (!electionService.isLoading() && !electionService.error()) {
     <main class="main-content">
+        <div class="info-actas">
+            <p class="actas-title">ACTAS CONTABILIZADAS</p>
+            <p class="actas-computed">{{electionService.actas()?.actas_contabilizadas_pct}}%</p>
+            <p class="last-updated">actualización: {{ formatDate(electionService.time_snapshot() ?? '') }}</p>
+        </div>
         <app-candidates-pyramid [candidates]="getTopThreeCandidates()"></app-candidates-pyramid>
     </main>
     }
 
     <!-- Footer -->
     <footer class="page-footer">
-        <p>{{ formatDate(electionService.electionResult()?.snapshot_time || '') }}</p>
+        <p>Diseñado por HTG-Soft</p>
     </footer>
 </div>

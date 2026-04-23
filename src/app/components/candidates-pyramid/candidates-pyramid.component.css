@@ -1,41 +1,60 @@
 .pyramid-container {
-    padding: 15px 10px;
+    padding: 12px 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     flex: 1;
+    overflow: hidden;
 }
 
 .pyramid-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #00d4ff;
-    margin-bottom: 8px;
+    margin: 0 0 6px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    font-weight: 600;
 }
 
 .pyramid {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+    flex-wrap: nowrap;
     flex: 1;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #0f3460 #0a0e27;
+}
+
+.pyramid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pyramid::-webkit-scrollbar-track {
+    background: #0a0e27;
+}
+
+.pyramid::-webkit-scrollbar-thumb {
+    background: #0f3460;
+    border-radius: 3px;
 }
 
 .pyramid-row {
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     position: relative;
     animation: slideIn 0.6s ease;
-    flex: 1;
-    min-width: 280px;
+    gap: 0;
+    flex-shrink: 0;
 }
 
 .pyramid-row.first-place {
@@ -64,46 +83,106 @@
 
 .pyramid-legend {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 2px solid #0f3460;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(15, 52, 96, 0.5);
 }
 
 .legend-item {
-    background: rgba(15, 52, 96, 0.3);
-    border: 1px solid #0f3460;
-    border-radius: 12px;
-    padding: 12px;
+    background: rgba(15, 52, 96, 0.25);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: 8px;
+    padding: 10px;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .legend-item:hover {
     border-color: #00d4ff;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    background: rgba(15, 52, 96, 0.4);
 }
 
 .legend-value {
     display: block;
     color: #00d4ff;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 5px;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    margin-bottom: 4px;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
 }
 
 .legend-label {
     display: block;
-    color: #b0b0b0;
-    font-size: 0.75rem;
+    color: #9090a0;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    font-weight: 500;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .pyramid-container {
+        padding: 10px 8px;
+        gap: 8px;
+    }
+
+    .pyramid-title {
+        font-size: 1.3rem;
+    }
+
+    .pyramid {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 925px) {
+    .pyramid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+}
+
+/* @media (max-width: 768px) {
     .pyramid-container {
         padding: 10px 5px;
+    }
+
+    .pyramid-title {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+
+    .pyramid {
+        gap: 8px;
+    }
+
+    .pyramid-legend {
+        gap: 6px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .legend-item {
+        padding: 8px;
+    }
+
+    .legend-value {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+
+    .legend-label {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .pyramid-container {
+        padding: 8px 4px;
+        gap: 6px;
     }
 
     .pyramid-title {
@@ -111,16 +190,21 @@
     }
 
     .pyramid {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .pyramid-row {
-        flex: none;
+        gap: 6px;
     }
 
     .pyramid-legend {
-        gap: 8px;
+        gap: 4px;
         grid-template-columns: 1fr;
+        margin-top: 4px;
+        padding-top: 4px;
     }
-}
+
+    .legend-item {
+        padding: 6px;
+    }
+
+    .legend-value {
+        font-size: 0.95rem;
+    }
+} */

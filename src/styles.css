@@ -8,83 +8,17 @@
 
 html,
 body {
-    height: 100dvh;
+    min-height: 100dvh;
     background: linear-gradient(180deg, #0a0e27 0%, #1a1a2e 50%, #0a0e27 100%);
     color: #e0e0e0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0a0e27;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #0f3460;
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #00d4ff;
-}
-
-/* Text selection */
-::selection {
-    background: #00d4ff;
-    color: #0a0e27;
-}
-
-::-moz-selection {
-    background: #00d4ff;
-    color: #0a0e27;
-}
-
-/* Button reset */
-button {
-    font-family: inherit;
-}
-
-/* Link styling */
-a {
-    color: #00d4ff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #00ff88;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-}
-
-/* Input styling */
-input,
-textarea,
-select {
-    background: rgba(15, 52, 96, 0.5);
-    border: 1px solid #0f3460;
-    color: #00d4ff;
-    border-radius: 5px;
-    padding: 8px 12px;
-    font-family: inherit;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: #00d4ff;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    /* overflow-x: hidden; */
 }
 
 /* Animations */
@@ -108,24 +42,6 @@ select:focus {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-/* Utility classes */
-.text-highlight {
-    color: #00d4ff;
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-}
-
-.text-success {
-    color: #00ff88;
-}
-
-.text-warning {
-    color: #ff006e;
-}
-
-.text-error {
-    color: #ff4757;
 }
 
 .container {

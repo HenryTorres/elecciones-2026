@@ -18,6 +18,8 @@ export class ElectionService {
 
     actas = computed(() => this.electionResult()?.actas || null);
 
+    time_snapshot = computed(() => this.electionResult()?.snapshot_time || null);
+
     topCandidates = computed(() => {
         const candidates = this.candidates();
         return candidates.slice(0, 5);
@@ -29,9 +31,6 @@ export class ElectionService {
 
     constructor(private http: HttpClient) { }
 
-    /**
-     * Obtiene los resultados electorales del endpoint
-     */
     fetchElectionResults(): void {
         this.isLoading.set(true);
         this.error.set(null);
