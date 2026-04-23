@@ -28,6 +28,14 @@
     letter-spacing: 1px;
 }
 
+/* .header-title {
+    font-size: 1.5rem;
+    color: #00d4ff;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+} */
+
 .main-content {
     flex: 1;
     display: flex;
@@ -168,7 +176,141 @@
 }
 
 @media (max-width: 800px) {
+
     .actas-computed {
         font-size: 2rem;
+    }
+
+    /* Header layout for mobile */
+    .page-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 10px;
+    }
+
+    /* Title always visible on mobile */
+    .header-title {
+        font-family: "Righteous", sans-serif;
+        color: #00d4ff;
+        font-size: 1.3rem;
+        margin: 0;
+        flex: 1;
+        text-align: left;
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    }
+
+    /* Hide desktop actas display on mobile */
+    .actas-desktop {
+        display: none;
+    }
+
+    /* Show mobile menu button on mobile */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        width: 44px;
+        height: 44px;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle:hover {
+        transform: scale(1.1);
+    }
+
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .hamburger {
+        width: 24px;
+        height: 2px;
+        background: #00d4ff;
+        display: block;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: #00d4ff;
+        top: -8px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: #00d4ff;
+        bottom: -8px;
+        transition: all 0.3s ease;
+    }
+
+    /* Mobile actas display */
+    .actas-mobile {
+        width: 100%;
+        animation: slideDown 0.3s ease-out;
+        border-top: 1px solid #0f3460;
+        margin-top: 8px;
+        padding-top: 8px;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media (min-width: 801px) {
+
+    /* Hide mobile elements on desktop */
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .header-title {
+        display: none;
+    }
+
+    /* Show desktop actas display on desktop */
+    .actas-desktop {
+        display: block;
+    }
+
+    /* Hide mobile actas display on desktop */
+    .actas-mobile {
+        display: none !important;
+    }
+
+    .page-header {
+        flex-direction: column;
     }
 }

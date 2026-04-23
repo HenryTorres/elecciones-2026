@@ -1,9 +1,24 @@
 <div class="elections-page">
     <!-- Header -->
     <header class="page-header">
+        <!-- Title - Always visible -->
+        <h1 class="header-title" [hidden]="!showTitle">Elecciones Perú 2026</h1>
 
         @if (!electionService.isLoading() && !electionService.error() && electionService.actas(); as actas) {
-        <actas-display [actas]="electionService.actas()" />
+        <!-- Desktop: Show actas-display -->
+        <div class="actas-desktop">
+            <actas-display [actas]="electionService.actas()" />
+        </div>
+        <!-- Mobile: Show menu icon -->
+        <button class="menu-toggle" (click)="toggleActasMenu()" [class.active]="showActasMenu()">
+            <span class="hamburger"></span>
+        </button>
+        <!-- Mobile: Show actas-display when menu is expanded -->
+        @if (showActasMenu()) {
+        <div class="actas-mobile">
+            <actas-display [actas]="electionService.actas()" />
+        </div>
+        }
         }
     </header>
 

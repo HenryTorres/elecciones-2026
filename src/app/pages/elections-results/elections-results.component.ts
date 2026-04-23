@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, effect, inject } from '@angular/core';
+import { Component, Inject, OnInit, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ElectionService } from '../../services/election.service';
 import { CandidatesPyramidComponent } from '../../components/candidates-pyramid/candidates-pyramid.component';
@@ -15,6 +15,8 @@ export class ElectionsResultsComponent implements OnInit {
 
 
     public electionService = inject(ElectionService);
+    public showActasMenu = signal(false);
+    showTitle = true;
 
     constructor() {
         effect(() => {
@@ -27,7 +29,6 @@ export class ElectionsResultsComponent implements OnInit {
     ngOnInit(): void {
         if (!this.electionService.electionResult()) {
             this.electionService.fetchElectionResults();
-            console.log({ 'time': this.electionService.time_snapshot() })
         }
     }
 
@@ -39,6 +40,11 @@ export class ElectionsResultsComponent implements OnInit {
     retry(): void {
         this.electionService.reset();
         this.electionService.fetchElectionResults();
+    }
+
+    toggleActasMenu(): void {
+        this.showActasMenu.update(value => !value);
+        this.showTitle = !this.showTitle;
     }
 
     formatDate(dateString: string): string {
