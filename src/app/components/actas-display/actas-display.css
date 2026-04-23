@@ -64,6 +64,15 @@
 }
 
 @media (max-width: 780px) {
+    .header-stats {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
     .header-stat-container {
         width: 100%;
         grid-template-columns: repeat(3, 1fr);
